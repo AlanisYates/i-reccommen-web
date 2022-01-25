@@ -1,9 +1,11 @@
+import { Button } from "@mui/material";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello</h1>
+      <Button>Test Button</Button>
+      <Button color="secondary">LETS GO</Button>
     </div>
   );
 }
