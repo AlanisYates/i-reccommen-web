@@ -18,9 +18,9 @@ export const MyTheme = createTheme({
 });
 
 MyTheme.typography.h1 = {
-  fontSize: "2rem",
+  fontSize: "2.8rem",
   "@media (min-width:600px)": {
-    fontSize: "2rem",
+    fontSize: "4rem",
   },
   [MyTheme.breakpoints.up("md")]: {
     fontSize: "5rem",
@@ -28,11 +28,21 @@ MyTheme.typography.h1 = {
 };
 
 MyTheme.typography.h4 = {
-  fontSize: "1.5rem",
+    fontSize: "1rem",
+    "@media (min-width:600px)": {
+      fontSize: "1rem",
+    },
+    [MyTheme.breakpoints.up("md")]: {
+      fontSize: "2.3rem",
+    },
+  };
+
+MyTheme.typography.h6 = {
+  fontSize: ".6rem",
   "@media (min-width:600px)": {
-    fontSize: "1.5rem",
+    fontSize: "1rem",
   },
   [MyTheme.breakpoints.up("md")]: {
-    fontSize: "3rem",
+    fontSize: "1.3rem",
   },
 };

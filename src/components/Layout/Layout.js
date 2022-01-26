@@ -10,19 +10,36 @@ export const Layout = () => (
       height: "100%",
     }}
   >
-    <Box>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
       <Typography variant="h1" fontWeight="bold">
         i-recommend.io
       </Typography>
-      {/* <Typography variant="h5" gutterBottom>
-        Recommendations.....
-        <Typography variant="h5" display="inline" fontWeight={500}>
-        simplified
-        </Typography>
-    </Typography> */}
-      <Typography variant="h4" fontWeight="regular" color="primary">
-        Comming Soon!
+      <Typography variant="h6" fontWeight="light" pb={6}>
+        A{" "}
+        <Typography variant="h6" fontWeight="bold" display="inline">
+          simple
+        </Typography>{" "}
+        way to recommend places to your friends!
       </Typography>
+      <Box
+        sx={{
+          py: 2,
+          bgcolor: "white",
+          borderRadius: "2rem",
+          width: "70%",
+        }}
+      >
+        <Typography variant="h4" fontWeight="medium">
+          Coming Soon!
+        </Typography>
+      </Box>
     </Box>
   </Box>
 );
