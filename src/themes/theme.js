@@ -1,5 +1,5 @@
 import { createTheme } from "@mui/material";
-import {red} from "@mui/material/colors";
+import { red } from "@mui/material/colors";
 
 export const MyTheme = createTheme({
   palette: {
@@ -8,7 +8,7 @@ export const MyTheme = createTheme({
     },
     primary: {
       // Purple and green play nicely together.
-      main: '#00000',
+      main: "#00000",
     },
     secondary: {
       // This is green.A700 as hex.
@@ -16,3 +16,23 @@ export const MyTheme = createTheme({
     },
   },
 });
+
+MyTheme.typography.h1 = {
+  fontSize: "2rem",
+  "@media (min-width:600px)": {
+    fontSize: "2rem",
+  },
+  [MyTheme.breakpoints.up("md")]: {
+    fontSize: "5rem",
+  },
+};
+
+MyTheme.typography.h4 = {
+  fontSize: "1.5rem",
+  "@media (min-width:600px)": {
+    fontSize: "1.5rem",
+  },
+  [MyTheme.breakpoints.up("md")]: {
+    fontSize: "3rem",
+  },
+};

@@ -1,17 +1,13 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 
 export const Layout = () => (
   <Box
     sx={{
       display: "flex",
-      width: "100%",
-      height: "100vh",
-      alignItems: "center",
       justifyContent: "center",
-      bgcolor: "background.main",
-      color: "text.primary",
-      borderRadius: 1,
-      p: 3,
+      alignItems: "center",
+      textAlign: "center",
+      height: "100%",
     }}
   >
     <Box>
@@ -21,9 +17,9 @@ export const Layout = () => (
       {/* <Typography variant="h5" gutterBottom>
         Recommendations.....
         <Typography variant="h5" display="inline" fontWeight={500}>
-          simplified
+        simplified
         </Typography>
-      </Typography> */}
+    </Typography> */}
       <Typography variant="h4" fontWeight="regular" color="primary">
         Comming Soon!
       </Typography>
