@@ -8,7 +8,7 @@ export const MyTheme = createTheme({
     },
     primary: {
       // Purple and green play nicely together.
-      main: '#000000',
+      main: '#00000',
     },
     secondary: {
       // This is green.A700 as hex.
