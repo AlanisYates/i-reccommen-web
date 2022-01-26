@@ -28,14 +28,14 @@ MyTheme.typography.h1 = {
 };
 
 MyTheme.typography.h4 = {
+  fontSize: "1rem",
+  "@media (min-width:600px)": {
     fontSize: "1rem",
-    "@media (min-width:600px)": {
-      fontSize: "1rem",
-    },
-    [MyTheme.breakpoints.up("md")]: {
-      fontSize: "2.3rem",
-    },
-  };
+  },
+  [MyTheme.breakpoints.up("md")]: {
+    fontSize: "2.3rem",
+  },
+};
 
 MyTheme.typography.h6 = {
   fontSize: ".6rem",
