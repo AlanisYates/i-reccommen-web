@@ -1,7 +1,6 @@
 import { Box } from "@mui/material";
-import { Homepage } from "../pages/Homepage/Homepage";
 
-export const Layout = () => (
+export const Layout = ({ children }) => (
   <Box
     sx={{
       display: "flex",
@@ -11,6 +10,6 @@ export const Layout = () => (
       height: "100%",
     }}
   >
-    <Homepage />
+    {children}
   </Box>
 );
