@@ -39,7 +39,7 @@ export const Homepage = () => {
       <Typography>Test</Typography>
       <Box width="300px">
         <GooglePlacesAutocomplete
-          apiKey="AIzaSyB5gp5idcraT0KrIHQGgqAD5rfgPNfnwAo"
+          apiKey={process.env.GOOGLE_API_KEY}
           selectProps={{
             value,
             onChange: setValue,
