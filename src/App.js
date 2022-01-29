@@ -7,6 +7,7 @@ function App() {
     <div className="App">
       <Box sx={{ bgcolor: "background.main", height: "100vh" }}>
         <Layout />
+        {/* Testing comment */}
       </Box>
     </div>
   );
