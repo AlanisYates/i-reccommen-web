@@ -1,6 +1,6 @@
 import { Layout } from "./components/Layout/Layout";
 import { Box } from "@mui/material";
-import { Link, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import { Homepage } from "./components/pages/Homepage/Homepage";
 import { Submit } from "./components/pages/SubmitPage/Submit";
