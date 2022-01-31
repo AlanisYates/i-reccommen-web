@@ -39,7 +39,7 @@ export const Homepage = () => {
       <Typography>Test</Typography>
       <Box width="300px">
         <GooglePlacesAutocomplete
-          apiKey={process.env.GOOGLE_API_KEY}
+          apiKey={process.env.REACT_APP_GOOGLE_API_KEY}
           selectProps={{
             value,
             onChange: setValue,
@@ -49,7 +49,7 @@ export const Homepage = () => {
       <Button
         variant="main"
         onClick={() => {
-          console.log(value.value.place_id);
+          console.log(value);
         }}
       >
         Hello
