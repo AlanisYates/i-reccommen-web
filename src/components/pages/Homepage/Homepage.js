@@ -6,10 +6,23 @@ export const Homepage = () => {
   const [value, setValue] = useState(null);
   const [recommendationList, setRecommendationList] = useState([]);
 
+  const addRecommendation = (newRecommendation) => {
+    setRecommendationList((recommendationList) => [
+      ...recommendationList,
+      newRecommendation,
+    ]);
+  };
+
+  const filterData = (data) => {
+    return {
+      place_id: data.place_id,
+      name: data.structured_formatting.main_text,
+    };
+  };
   const logRecommendations = () => {
     console.log(recommendationList);
   };
-  
+
   return (
     <Box
       sx={{
@@ -42,17 +55,25 @@ export const Homepage = () => {
       </Typography>
     </Box> */}
       <Typography>Test</Typography>
-      <Box width="300px">
+      <Box width="100%">
         <GooglePlacesAutocomplete
           apiKey={process.env.REACT_APP_GOOGLE_API_KEY}
           selectProps={{
             value,
             onChange: setValue,
           }}
+          on
         />
       </Box>
       <Stack spacing={4} direction="row" p={4}>
-        <Button variant="contained" color="success" onClick={() => {}}>
+        <Button
+          variant="contained"
+          color="success"
+          onClick={() => {
+            const place = filterData(value);
+            addRecommendation(place);
+          }}
+        >
           Add to Recommendations
         </Button>
 

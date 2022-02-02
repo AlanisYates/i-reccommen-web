@@ -5,6 +5,7 @@ import "./App.css";
 import { Homepage } from "./components/pages/Homepage/Homepage";
 import { Submit } from "./components/pages/SubmitPage/Submit";
 import { NotFound } from "./components/pages/NotFound/NotFound";
+import { GoogleSearch } from "./components/pages/Homepage/GoogleSearch";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Homepage />} />
             <Route path="/review" element={<Submit />} />
+            <Route path="/test" element={<GoogleSearch />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>
