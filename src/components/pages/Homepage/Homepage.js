@@ -1,10 +1,15 @@
-import { Button, Box, Typography, Link } from "@mui/material";
+import { Button, Box, Typography, Link, Stack } from "@mui/material";
 import { useState } from "react";
 import GooglePlacesAutocomplete from "react-google-places-autocomplete";
 
 export const Homepage = () => {
   const [value, setValue] = useState(null);
-  const cats = "cats";
+  const [recommendationList, setRecommendationList] = useState([]);
+
+  const logRecommendations = () => {
+    console.log(recommendationList);
+  };
+  
   return (
     <Box
       sx={{
@@ -46,21 +51,26 @@ export const Homepage = () => {
           }}
         />
       </Box>
-      <Button
-        variant="main"
-        onClick={() => {
-          console.log(value);
-        }}
-      >
-        Hello
-      </Button>
-      <Link
+      <Stack spacing={4} direction="row" p={4}>
+        <Button variant="contained" color="success" onClick={() => {}}>
+          Add to Recommendations
+        </Button>
+
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={logRecommendations}
+        >
+          Log Recommendations
+        </Button>
+      </Stack>
+      {/* <Link
         // component="button"
         target="blank"
         href={`https://www.google.com/maps/search/?api=1&query=Google&query_place_id=${value?.value.place_id}`}
       >
         Link to Search
-      </Link>
+      </Link> */}
     </Box>
   );
 };
