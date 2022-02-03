@@ -1,6 +1,6 @@
-import { Button, Box, Typography, Link, Stack } from "@mui/material";
+import { Button, Box, Stack } from "@mui/material";
 import { useState } from "react";
-import GooglePlacesAutocomplete from "react-google-places-autocomplete";
+import { GoogleSearch } from "./GoogleSearch";
 
 export const Homepage = () => {
   const [value, setValue] = useState(null);
@@ -15,8 +15,9 @@ export const Homepage = () => {
 
   const filterData = (data) => {
     return {
-      place_id: data.place_id,
-      name: data.structured_formatting.main_text,
+      address: data.formatted_address,
+      name: data.name,
+      url: data.url,
     };
   };
   const logRecommendations = () => {
@@ -32,46 +33,15 @@ export const Homepage = () => {
         alignItems: "center",
       }}
     >
-      {/* <Typography variant="h1" fontWeight="bold">
-      i-recommend.io
-    </Typography>
-    <Typography variant="h6" fontWeight="light" pb={6}>
-      A{" "}
-      <Typography variant="h6" fontWeight="bold" display="inline">
-        simple
-      </Typography>{" "}
-      way to recommend places to your friends!
-    </Typography>
-    <Box
-      sx={{
-        py: 2,
-        bgcolor: "white",
-        borderRadius: "2rem",
-        width: "70%",
-      }}
-    >
-      <Typography variant="h4" fontWeight="medium">
-        Coming Soon!
-      </Typography>
-    </Box> */}
-      <Typography>Test</Typography>
       <Box width="100%">
-        <GooglePlacesAutocomplete
-          apiKey={process.env.REACT_APP_GOOGLE_API_KEY}
-          selectProps={{
-            value,
-            onChange: setValue,
-          }}
-          on
-        />
+        <GoogleSearch onClick={(data) => setValue(filterData(data))} />
       </Box>
       <Stack spacing={4} direction="row" p={4}>
         <Button
           variant="contained"
           color="success"
           onClick={() => {
-            const place = filterData(value);
-            addRecommendation(place);
+            addRecommendation(value);
           }}
         >
           Add to Recommendations
