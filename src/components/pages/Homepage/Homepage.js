@@ -1,6 +1,7 @@
 import { Button, Box, Stack } from "@mui/material";
 import { useState } from "react";
 import { GoogleSearch } from "./GoogleSearch";
+import { PlaceCard } from "./_components/PlaceCard";
 
 export const Homepage = () => {
   const [value, setValue] = useState(null);
@@ -54,6 +55,15 @@ export const Homepage = () => {
         >
           Log Recommendations
         </Button>
+      </Stack>
+
+      <Stack>
+        {recommendationList.map(place => (
+          <PlaceCard placeData={place} />
+
+        )
+
+        )}
       </Stack>
       {/* <Link
         // component="button"
