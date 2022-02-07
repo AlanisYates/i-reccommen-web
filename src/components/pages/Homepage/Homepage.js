@@ -19,6 +19,7 @@ export const Homepage = () => {
       address: data.formatted_address,
       name: data.name,
       url: data.url,
+      photos: data.photo,
     };
   };
   const logRecommendations = () => {
@@ -57,6 +58,7 @@ export const Homepage = () => {
         </Button>
       </Stack>
 
+<<<<<<< HEAD
       <Stack spacing={2}>
         {recommendationList.map(place => (
           <PlaceCard placeData={place} />
@@ -64,6 +66,12 @@ export const Homepage = () => {
         )
 
         )}
+=======
+      <Stack>
+        {recommendationList.map((place) => (
+          <PlaceCard placeData={place} key={place.name} />
+        ))}
+>>>>>>> e06bb31ce45b0ad54896fc66bd62a943e933f8db
       </Stack>
       {/* <Link
         // component="button"
