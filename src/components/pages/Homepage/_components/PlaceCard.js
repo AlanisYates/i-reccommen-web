@@ -16,7 +16,7 @@ export const PlaceCard = ({ placeData }) => {
           <CardContent sx={{ flex: "3 0" }}>
             <Box
               sx={{
-                textAlign: "left",
+                textAlign: "center",
                 pb: 2,
               }}
             >

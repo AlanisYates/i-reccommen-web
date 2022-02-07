@@ -57,7 +57,7 @@ export const Homepage = () => {
         </Button>
       </Stack>
 
-      <Stack>
+      <Stack spacing={2}>
         {recommendationList.map(place => (
           <PlaceCard placeData={place} />
 
