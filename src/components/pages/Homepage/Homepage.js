@@ -1,6 +1,6 @@
 import { Button, Box, Stack } from "@mui/material";
 import { useState } from "react";
-import { GoogleSearch } from "./GoogleSearch";ß
+import { GoogleSearch } from "./GoogleSearch";
 import { PlaceCard } from "./_components/PlaceCard";
 
 export const Homepage = () => {
