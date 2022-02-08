@@ -1,6 +1,7 @@
 import { Button, Box, Stack } from "@mui/material";
 import { useState } from "react";
 import { GoogleSearch } from "./GoogleSearch";
+import useDebounce from "./useDebounce";
 import { PlaceCard } from "./_components/PlaceCard";
 
 export const Homepage = () => {
@@ -58,20 +59,10 @@ export const Homepage = () => {
         </Button>
       </Stack>
 
-<<<<<<< HEAD
-      <Stack spacing={2}>
-        {recommendationList.map(place => (
-          <PlaceCard placeData={place} />
-
-        )
-
-        )}
-=======
       <Stack>
         {recommendationList.map((place) => (
           <PlaceCard placeData={place} key={place.name} />
         ))}
->>>>>>> e06bb31ce45b0ad54896fc66bd62a943e933f8db
       </Stack>
       {/* <Link
         // component="button"
