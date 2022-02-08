@@ -45,7 +45,7 @@ export const PlaceCard = ({ placeData }) => {
               View On maps
             </Button>
             <Box>
-              <TextField multiline fullWidth label="notes" rows={5} />
+              <TextField multiline fullWidth label="notes" rows={3} />
             </Box>
             {/* <Button
               // onClick={logData}
