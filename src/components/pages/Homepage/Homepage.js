@@ -1,4 +1,4 @@
-import { Button, Box, Stack } from "@mui/material";
+import { Button, Box, Stack, List, ListItem } from "@mui/material";
 import { useState } from "react";
 import { GoogleSearch } from "./GoogleSearch";
 import { PlaceCard } from "./_components/PlaceCard";
@@ -6,7 +6,7 @@ import { PlaceCard } from "./_components/PlaceCard";
 export const Homepage = () => {
   const [value, setValue] = useState(null);
   const [recommendationList, setRecommendationList] = useState([]);
-
+  
   const addRecommendation = (newRecommendation) => {
     setRecommendationList((recommendationList) => [
       ...recommendationList,
@@ -19,7 +19,7 @@ export const Homepage = () => {
       address: data.formatted_address,
       name: data.name,
       url: data.url,
-      photos: data.photo,
+      photos: data.photos,
     };
   };
   const logRecommendations = () => {
@@ -58,11 +58,19 @@ export const Homepage = () => {
         </Button>
       </Stack>
 
-      <Stack>
+      <List
+        sx={{
+          overflow: "auto",
+          height: "500px",
+          width: "100%"
+        }}
+      >
         {recommendationList.map((place) => (
-          <PlaceCard placeData={place} key={place.name} />
+          <ListItem key={place.name}>
+            <PlaceCard placeData={place} />
+          </ListItem>
         ))}
-      </Stack>
+      </List>
       {/* <Link
         // component="button"
         target="blank"

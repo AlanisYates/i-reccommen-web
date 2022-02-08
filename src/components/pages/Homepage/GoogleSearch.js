@@ -19,12 +19,10 @@ export const GoogleSearch = ({ onClick }) => {
     // Initialize Google Autocomplete
     /*global google*/ // To disable any eslint 'google not defined' errors
 
-
-      autocompleteRef.current = new google.maps.places.Autocomplete(
-        document.getElementById("search-input"),
-        options
-      );
-
+    autocompleteRef.current = new google.maps.places.Autocomplete(
+      document.getElementById("search-input"),
+      options
+    );
 
     // Avoid paying for data that you don't need by restricting the set of
     // place fields that are returned to just the address components and formatted
@@ -32,9 +30,9 @@ export const GoogleSearch = ({ onClick }) => {
     autocompleteRef.current.setFields([
       "address_component",
       "formatted_address",
-      // "name",
+      "name",
       // "geometry",
-      // "url",
+      "url",
       "photo",
     ]);
 
@@ -53,7 +51,11 @@ export const GoogleSearch = ({ onClick }) => {
     //   setQuery(addressObject.name);
     //   console.log(addressObject);
     // }
-    console.log(addressObject);
+
+    // set querey to the name of the place
+    setQuery(addressObject.name);
+
+    // console.log(addressObject);
     onClick(addressObject);
   };
 
