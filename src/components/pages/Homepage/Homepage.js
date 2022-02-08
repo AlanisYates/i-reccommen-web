@@ -6,7 +6,7 @@ import { PlaceCard } from "./_components/PlaceCard";
 export const Homepage = () => {
   const [value, setValue] = useState(null);
   const [recommendationList, setRecommendationList] = useState([]);
-  
+
   const addRecommendation = (newRecommendation) => {
     setRecommendationList((recommendationList) => [
       ...recommendationList,
@@ -62,7 +62,7 @@ export const Homepage = () => {
         sx={{
           overflow: "auto",
           height: "500px",
-          width: "100%"
+          width: "100%",
         }}
       >
         {recommendationList.map((place) => (
