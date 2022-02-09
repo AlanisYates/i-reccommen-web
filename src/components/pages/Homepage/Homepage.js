@@ -1,11 +1,18 @@
 import { Button, Box, Stack, List, ListItem } from "@mui/material";
 import { useState } from "react";
+import { addPlace } from "../../../_services/PlaceService/PlaceApi";
 import { GoogleSearch } from "./GoogleSearch";
 import { PlaceCard } from "./_components/PlaceCard";
 
 export const Homepage = () => {
   const [value, setValue] = useState(null);
   const [recommendationList, setRecommendationList] = useState([]);
+
+  const saveItenerary = async () => {
+    const thingsToAdd = {};
+    const res = await addPlace(thingsToAdd);
+    console.log(res);
+  };
 
   const addRecommendation = (newRecommendation) => {
     setRecommendationList((recommendationList) => [
@@ -36,7 +43,12 @@ export const Homepage = () => {
       }}
     >
       <Box width="100%">
-        <GoogleSearch onClick={(data) => setValue(filterData(data))} />
+        <GoogleSearch
+          onClick={(data) => {
+            setValue(filterData(data));
+            addRecommendation(filterData(data));
+          }}
+        />
       </Box>
       <Stack spacing={4} direction="row" p={4}>
         <Button
@@ -71,6 +83,11 @@ export const Homepage = () => {
           </ListItem>
         ))}
       </List>
+      <Box>
+        <Button color="success" variant="contained" onClick={saveItenerary}>
+          Save
+        </Button>
+      </Box>
       {/* <Link
         // component="button"
         target="blank"

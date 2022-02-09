@@ -19,7 +19,7 @@ export const PlaceCard = ({ placeData }) => {
     // Get the first three photos from google
     const photoList = placeData.photos.slice(0, 3);
     photoList.forEach((photo) => photos.push(photo.getUrl()));
-    setTestPhotos(photos);
+    console.log(photoList);
   };
   return (
     <Card sx={{ width: "100%" }}>
@@ -47,14 +47,14 @@ export const PlaceCard = ({ placeData }) => {
             <Box>
               <TextField multiline fullWidth label="notes" rows={3} />
             </Box>
-            {/* <Button
-              // onClick={logData}
+            <Button
+              onClick={logData}
               variant="contained"
               color="success"
               target="blank"
             >
               Add Notes
-            </Button> */}
+            </Button>
           </Stack>
         </CardContent>
       </Box>
