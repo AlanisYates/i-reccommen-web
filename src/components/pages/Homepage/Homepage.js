@@ -1,4 +1,4 @@
-import { Button, Box, Stack, List, ListItem } from "@mui/material";
+import { Button, Box, Stack, List, ListItem, TextField } from "@mui/material";
 import { useState } from "react";
 import { addPlace } from "../../../_services/PlaceService/PlaceApi";
 import { GoogleSearch } from "./GoogleSearch";
@@ -9,7 +9,10 @@ import * as yup from "yup";
 const validationSchema = yup.object({
   firstName: yup.string("First Name"),
   lastName: yup.string("Last Name"),
-  email: yup.string("Enter You email").email("Enter a valid Email"),
+  email: yup
+    .string("Enter You email")
+    .email("Enter a valid Email")
+    .required("Email is required"),
 });
 
 export const Homepage = () => {
@@ -65,6 +68,36 @@ export const Homepage = () => {
             alignItems: "center",
           }}
         >
+          <TextField
+            fullWidth
+            id="email"
+            name="email"
+            label="Email"
+            value={formik.values.email}
+            onChange={formik.handleChange}
+            error={formik.touched.email && Boolean(formik.errors.email)}
+            helperText={formik.touched.email && formik.errors.email}
+          />
+          <TextField
+            fullWidth
+            id="lastName"
+            name="lastName"
+            label="Last Name"
+            value={formik.values.lastName}
+            onChange={formik.handleChange}
+            error={formik.touched.lastName && Boolean(formik.errors.lastName)}
+            helperText={formik.touched.lastName && formik.errors.lastName}
+          />
+          <TextField
+            fullWidth
+            id="firstName"
+            name="firstName"
+            label="First Name"
+            value={formik.values.firstName}
+            onChange={formik.handleChange}
+            error={formik.touched.firstName && Boolean(formik.errors.firstName)}
+            helperText={formik.touched.firstName && formik.errors.firstName}
+          />
           {/* <Box width="100%">
         <GoogleSearch
           onClick={(data) => {
