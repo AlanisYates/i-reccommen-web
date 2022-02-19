@@ -10,7 +10,7 @@ import {
   TextField,
 } from "@mui/material";
 import { useState } from "react";
-export const PlaceCard = ({ placeData }) => {
+export const PlaceCard = ({ placeData, handleNotes }) => {
   const [testPhotos, setTestPhotos] = useState([]);
   const [notes, setNotes] = useState('');
 
