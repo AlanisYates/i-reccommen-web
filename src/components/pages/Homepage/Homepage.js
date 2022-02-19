@@ -42,28 +42,30 @@ export const Homepage = () => {
   //   ]);
   // };
 
-  const filterData = (data) => {
-    return {
-      name: data.name,
-      address: data.formatted_address,
-      website: data.url,
-      photos: data.photos.slice(0, 3),
-    };
-  };
-  const logRecommendations = () => {
-    console.log(recommendationList);
-  };
+  // const filterData = (data) => {
+  //   return {
+  //     name: data.name,
+  //     address: data.formatted_address,
+  //     website: data.url,
+  //     photos: data.photos.slice(0, 3),
+  //   };
+  // };
+  // const logRecommendations = () => {
+  //   console.log(recommendationList);
+  // };
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      {/* <Box width="100%">
+    <>
+      <form onSubmit={formik.handleSubmit}>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          {/* <Box width="100%">
         <GoogleSearch
           onClick={(data) => {
             setValue(filterData(data));
@@ -101,6 +103,11 @@ export const Homepage = () => {
           Save
         </Button>
       </Box> */}
-    </Box>
+          <Button type="submit" variant="contained" color="success">
+            Submit
+          </Button>
+        </Box>
+      </form>
+    </>
   );
 };
