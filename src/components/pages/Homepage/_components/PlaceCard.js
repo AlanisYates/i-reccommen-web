@@ -12,7 +12,7 @@ import {
 import { useState } from "react";
 export const PlaceCard = ({ placeData, handleNotes }) => {
   const [testPhotos, setTestPhotos] = useState([]);
-  const [notes, setNotes] = useState('');
+  const [notes, setNotes] = useState("");
 
   const logData = () => {
     let photos = [];
@@ -21,7 +21,7 @@ export const PlaceCard = ({ placeData, handleNotes }) => {
     const photoList = placeData.photos.slice(0, 3);
     photoList.forEach((photo) => photos.push(photo.getUrl()));
     console.log(photoList);
-    console.log(notes)
+    console.log(notes);
   };
   return (
     <Card sx={{ width: "100%" }}>
@@ -38,7 +38,15 @@ export const PlaceCard = ({ placeData, handleNotes }) => {
           </Box>
           <Stack direction="column" spacing={3}>
             <Box>
-              <TextField onChange={e => {setNotes(e.target.value)}} multiline fullWidth label="notes" rows={3} />
+              <TextField
+                onChange={(e) => {
+                  setNotes(e.target.value);
+                }}
+                multiline
+                fullWidth
+                label="notes"
+                rows={3}
+              />
             </Box>
             <Button
               href={placeData.website}

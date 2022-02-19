@@ -3,31 +3,51 @@ import { useState } from "react";
 import { addPlace } from "../../../_services/PlaceService/PlaceApi";
 import { GoogleSearch } from "./GoogleSearch";
 import { PlaceCard } from "./_components/PlaceCard";
+import { useFormik } from "formik";
+import * as yup from "yup";
+
+const validationSchema = yup.object({
+  firstName: yup.string("First Name"),
+  lastName: yup.string("Last Name"),
+  email: yup.string("Enter You email").email("Enter a valid Email"),
+});
 
 export const Homepage = () => {
-  const [value, setValue] = useState(null);
-  const [recommendationList, setRecommendationList] = useState([]);
+  const formik = useFormik({
+    initialValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+    },
+    validationSchema: validationSchema,
+    onSubmit: (values) => {
+      alert(JSON.stringify(values, null, 2));
+    },
+  });
 
-  const saveItenerary = async () => {
-    console.log(recommendationList)
-    // const thingsToAdd = {};
-    // const res = await addPlace(thingsToAdd);
-    // console.log(res);
-  };
+  // const [value, setValue] = useState(null);
+  // const [recommendationList, setRecommendationList] = useState([]);
 
-  const addRecommendation = (newRecommendation) => {
-    setRecommendationList((recommendationList) => [
-      ...recommendationList,
-      newRecommendation,
-    ]);
-  };
+  // const saveItenerary = async () => {
+  //   console.log(recommendationList)
+  //   // const thingsToAdd = {};
+  //   // const res = await addPlace(thingsToAdd);
+  //   // console.log(res);
+  // };
+
+  // const addRecommendation = (newRecommendation) => {
+  //   setRecommendationList((recommendationList) => [
+  //     ...recommendationList,
+  //     newRecommendation,
+  //   ]);
+  // };
 
   const filterData = (data) => {
     return {
       name: data.name,
       address: data.formatted_address,
       website: data.url,
-      photos: data.photos.slice(0,3),
+      photos: data.photos.slice(0, 3),
     };
   };
   const logRecommendations = () => {
@@ -43,7 +63,7 @@ export const Homepage = () => {
         alignItems: "center",
       }}
     >
-      <Box width="100%">
+      {/* <Box width="100%">
         <GoogleSearch
           onClick={(data) => {
             setValue(filterData(data));
@@ -61,14 +81,6 @@ export const Homepage = () => {
         >
           Add to Recommendations
         </Button>
-
-        {/* <Button
-          variant="contained"
-          color="secondary"
-          onClick={logRecommendations}
-        >
-          Log Recommendations
-        </Button> */}
       </Stack>
 
       <List
@@ -88,7 +100,7 @@ export const Homepage = () => {
         <Button color="success" variant="contained" onClick={saveItenerary}>
           Save
         </Button>
-      </Box>
+      </Box> */}
     </Box>
   );
 };

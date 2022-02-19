@@ -12,7 +12,7 @@ export const getAllPlaces = async () => {
 };
 
 export const addPlace = async (recList) => {
-    const testData = {}
+  const testData = {};
   try {
     const data = await axios
       .post(`${process.env.REACT_APP_API_URL}/recs`, recList)
