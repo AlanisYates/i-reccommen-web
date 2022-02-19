@@ -9,9 +9,10 @@ export const Homepage = () => {
   const [recommendationList, setRecommendationList] = useState([]);
 
   const saveItenerary = async () => {
-    const thingsToAdd = {};
-    const res = await addPlace(thingsToAdd);
-    console.log(res);
+    console.log(recommendationList)
+    // const thingsToAdd = {};
+    // const res = await addPlace(thingsToAdd);
+    // console.log(res);
   };
 
   const addRecommendation = (newRecommendation) => {
@@ -23,10 +24,10 @@ export const Homepage = () => {
 
   const filterData = (data) => {
     return {
-      address: data.formatted_address,
       name: data.name,
-      url: data.url,
-      photos: data.photos,
+      address: data.formatted_address,
+      website: data.url,
+      photos: data.photos.slice(0,3),
     };
   };
   const logRecommendations = () => {
@@ -61,13 +62,13 @@ export const Homepage = () => {
           Add to Recommendations
         </Button>
 
-        <Button
+        {/* <Button
           variant="contained"
           color="secondary"
           onClick={logRecommendations}
         >
           Log Recommendations
-        </Button>
+        </Button> */}
       </Stack>
 
       <List
@@ -88,13 +89,6 @@ export const Homepage = () => {
           Save
         </Button>
       </Box>
-      {/* <Link
-        // component="button"
-        target="blank"
-        href={`https://www.google.com/maps/search/?api=1&query=Google&query_place_id=${value?.value.place_id}`}
-      >
-        Link to Search
-      </Link> */}
     </Box>
   );
 };
