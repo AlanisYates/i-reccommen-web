@@ -159,8 +159,6 @@ export const Homepage = () => {
             <Button type="submit" variant="contained" color="success">
               Submit
             </Button>
-            {/* <ValueBtn /> */}
-            <Button onClick={() => console.log(formik.values)}>Log Vals</Button>
           </Stack>
         </Box>
       </form>
