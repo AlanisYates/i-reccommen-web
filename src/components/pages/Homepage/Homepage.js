@@ -25,6 +25,7 @@ const validationSchema = yup.object({
 
 export const Homepage = () => {
   const [recommendationList, setRecommendationList] = useState([]);
+  const [value, setValue] = useState(null);
 
   const formik = useFormik({
     initialValues: {
@@ -36,14 +37,12 @@ export const Homepage = () => {
     onSubmit: async (values) => {
       const valuesToSend = {
         ...values,
-        recomemmendations: recommendationList
-      }
+        recomemmendations: recommendationList,
+      };
       await new Promise((r) => setTimeout(r, 500));
       await console.log(JSON.stringify(valuesToSend, null, 2));
     },
   });
-
-  // const [value, setValue] = useState(null);
 
   // const saveItenerary = async () => {
   //   console.log(recommendationList)
@@ -52,24 +51,21 @@ export const Homepage = () => {
   //   // console.log(res);
   // };
 
-  // const addRecommendation = (newRecommendation) => {
-  //   setRecommendationList((recommendationList) => [
-  //     ...recommendationList,
-  //     newRecommendation,
-  //   ]);
-  // };
+  const addRecommendation = (newRecommendation) => {
+    setRecommendationList((recommendationList) => [
+      ...recommendationList,
+      newRecommendation,
+    ]);
+  };
 
-  // const filterData = (data) => {
-  //   return {
-  //     name: data.name,
-  //     address: data.formatted_address,
-  //     website: data.url,
-  //     photos: data.photos.slice(0, 3),
-  //   };
-  // };
-  // const logRecommendations = () => {
-  //   console.log(recommendationList);
-  // };
+  const filterData = (data) => {
+    return {
+      name: data.name,
+      address: data.formatted_address,
+      website: data.url,
+      photos: data.photos.slice(0, 3),
+    };
+  };
 
   return (
     <Box width="80%">
@@ -118,15 +114,15 @@ export const Homepage = () => {
               }
               helperText={formik.touched.firstName && formik.errors.firstName}
             />
-            {/* <Box width="100%">
-        <GoogleSearch
-          onClick={(data) => {
-            setValue(filterData(data));
-            addRecommendation(filterData(data));
-          }}
-        />
-      </Box>
-      <Stack spacing={4} direction="row" p={4}>
+            <Box width="100%">
+              <GoogleSearch
+                onClick={(data) => {
+                  setValue(filterData(data));
+                  addRecommendation(filterData(data));
+                }}
+              />
+            </Box>
+            {/* <Stack spacing={4} direction="row" p={4}>
         <Button
           variant="contained"
           color="success"
@@ -136,26 +132,21 @@ export const Homepage = () => {
         >
           Add to Recommendations
         </Button>
-      </Stack>
+      </Stack> */}
 
-      <List
-        sx={{
-          overflow: "auto",
-          height: "500px",
-          width: "100%",
-        }}
-      >
-        {recommendationList.map((place) => (
-          <ListItem key={place.name}>
-            <PlaceCard placeData={place} />
-          </ListItem>
-        ))}
-      </List>
-      <Box>
-        <Button color="success" variant="contained" onClick={saveItenerary}>
-          Save
-        </Button>
-      </Box> */}
+            <List
+              sx={{
+                overflow: "auto",
+                height: "500px",
+                width: "100%",
+              }}
+            >
+              {recommendationList.map((place) => (
+                <ListItem key={place.name}>
+                  <PlaceCard placeData={place} />
+                </ListItem>
+              ))}
+            </List>
             <Button type="submit" variant="contained" color="success">
               Submit
             </Button>
