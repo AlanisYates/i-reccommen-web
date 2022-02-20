@@ -1,4 +1,12 @@
-import { Button, Box, Stack, List, ListItem, TextField } from "@mui/material";
+import {
+  Button,
+  Box,
+  Stack,
+  List,
+  ListItem,
+  TextField,
+  Text,
+} from "@mui/material";
 import { useState } from "react";
 import { addPlace } from "../../../_services/PlaceService/PlaceApi";
 import { GoogleSearch } from "./GoogleSearch";
@@ -16,6 +24,8 @@ const validationSchema = yup.object({
 });
 
 export const Homepage = () => {
+  const [recommendationList, setRecommendationList] = useState([]);
+
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -23,13 +33,17 @@ export const Homepage = () => {
       email: "",
     },
     validationSchema: validationSchema,
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+    onSubmit: async (values) => {
+      const valuesToSend = {
+        ...values,
+        recomemmendations: recommendationList
+      }
+      await new Promise((r) => setTimeout(r, 500));
+      await console.log(JSON.stringify(valuesToSend, null, 2));
     },
   });
 
   // const [value, setValue] = useState(null);
-  // const [recommendationList, setRecommendationList] = useState([]);
 
   // const saveItenerary = async () => {
   //   console.log(recommendationList)
@@ -58,7 +72,7 @@ export const Homepage = () => {
   // };
 
   return (
-    <>
+    <Box width="80%">
       <form onSubmit={formik.handleSubmit}>
         <Box
           sx={{
@@ -68,37 +82,43 @@ export const Homepage = () => {
             alignItems: "center",
           }}
         >
-          <TextField
-            fullWidth
-            id="email"
-            name="email"
-            label="Email"
-            value={formik.values.email}
-            onChange={formik.handleChange}
-            error={formik.touched.email && Boolean(formik.errors.email)}
-            helperText={formik.touched.email && formik.errors.email}
-          />
-          <TextField
-            fullWidth
-            id="lastName"
-            name="lastName"
-            label="Last Name"
-            value={formik.values.lastName}
-            onChange={formik.handleChange}
-            error={formik.touched.lastName && Boolean(formik.errors.lastName)}
-            helperText={formik.touched.lastName && formik.errors.lastName}
-          />
-          <TextField
-            fullWidth
-            id="firstName"
-            name="firstName"
-            label="First Name"
-            value={formik.values.firstName}
-            onChange={formik.handleChange}
-            error={formik.touched.firstName && Boolean(formik.errors.firstName)}
-            helperText={formik.touched.firstName && formik.errors.firstName}
-          />
-          {/* <Box width="100%">
+          <Stack spacing={2} width="100%">
+            <TextField
+              fullWidth
+              variant="standard"
+              id="email"
+              name="email"
+              label="Email"
+              value={formik.values.email}
+              onChange={formik.handleChange}
+              error={formik.touched.email && Boolean(formik.errors.email)}
+              helperText={formik.touched.email && formik.errors.email}
+            />
+            <TextField
+              variant="standard"
+              fullWidth
+              id="lastName"
+              name="lastName"
+              label="Last Name"
+              value={formik.values.lastName}
+              onChange={formik.handleChange}
+              error={formik.touched.lastName && Boolean(formik.errors.lastName)}
+              helperText={formik.touched.lastName && formik.errors.lastName}
+            />
+            <TextField
+              fullWidth
+              variant="standard"
+              id="firstName"
+              name="firstName"
+              label="First Name"
+              value={formik.values.firstName}
+              onChange={formik.handleChange}
+              error={
+                formik.touched.firstName && Boolean(formik.errors.firstName)
+              }
+              helperText={formik.touched.firstName && formik.errors.firstName}
+            />
+            {/* <Box width="100%">
         <GoogleSearch
           onClick={(data) => {
             setValue(filterData(data));
@@ -136,11 +156,24 @@ export const Homepage = () => {
           Save
         </Button>
       </Box> */}
-          <Button type="submit" variant="contained" color="success">
-            Submit
-          </Button>
+            <Button type="submit" variant="contained" color="success">
+              Submit
+            </Button>
+            {/* <ValueBtn /> */}
+            <Button onClick={() => console.log(formik.values)}>Log Vals</Button>
+            <Button
+              onClick={() => {
+                setRecommendationList([
+                  ...recommendationList,
+                  { name: "Alanis" },
+                ]);
+              }}
+            >
+              add yo to values
+            </Button>
+          </Stack>
         </Box>
       </form>
-    </>
+    </Box>
   );
 };
