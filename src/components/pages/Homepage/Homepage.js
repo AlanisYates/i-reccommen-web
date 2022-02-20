@@ -161,16 +161,6 @@ export const Homepage = () => {
             </Button>
             {/* <ValueBtn /> */}
             <Button onClick={() => console.log(formik.values)}>Log Vals</Button>
-            <Button
-              onClick={() => {
-                setRecommendationList([
-                  ...recommendationList,
-                  { name: "Alanis" },
-                ]);
-              }}
-            >
-              add yo to values
-            </Button>
           </Stack>
         </Box>
       </form>
