@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { InputBase, Typography, Input, TextField } from "@mui/material";
+import { TextField } from "@mui/material";
 import Script from "react-load-script";
 
 export const GoogleSearch = ({ onClick }) => {

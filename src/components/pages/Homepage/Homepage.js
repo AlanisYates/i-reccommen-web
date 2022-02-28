@@ -4,24 +4,20 @@ import {
   Stack,
   List,
   ListItem,
-  TextField,
-  Text,
   Typography,
   Modal,
 } from "@mui/material";
 import { useState } from "react";
-import { addPlace } from "../../../_services/PlaceService/PlaceApi";
+// import { addPlace } from "../../../_services/PlaceService/PlaceApi";
 import { GoogleSearch } from "./GoogleSearch";
 import { PlaceCard } from "./_components/PlaceCard";
-import { Formik, Field, Form, ErrorMessage, FieldArray } from "formik";
+import { Formik, Form } from "formik";
 import * as yup from "yup";
 import InputField from "./_components/InputField";
 
-
-
 export const Homepage = () => {
   const [recommendationList, setRecommendationList] = useState([]);
-  const [value, setValue] = useState(null);
+  // const [value, setValue] = useState(null);
 
   // Modal--------------->
   const [open, setOpen] = useState(false);
@@ -105,8 +101,8 @@ export const Homepage = () => {
         onSubmit={async (values) => {
           const dataToSend = {
             ...values,
-            recomendations: recommendationList
-          }
+            recomendations: recommendationList,
+          };
           await new Promise((r) => setTimeout(r, 500));
           alert(JSON.stringify(dataToSend, null, 2));
         }}
