@@ -16,7 +16,7 @@ export const ComingSoon = () => {
       </Box>
       <Box pb={4}>
         <Typography variant="h5">
-          The <strong>simple</strong> to recommend places to your friends!
+          The <strong>simple</strong> way to recommend places to your friends!
         </Typography>
       </Box>
       <Box bgcolor="white" p={2} sx={{ borderRadius: 30, width: "50%" }}>
