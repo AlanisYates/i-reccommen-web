@@ -3,6 +3,7 @@ import {
   Box,
   Stack,
   List,
+  Grid,
   ListItem,
   TextField,
   Text,
@@ -16,8 +17,15 @@ import { PlaceCard } from "./_components/PlaceCard";
 import { Formik, Field, Form, ErrorMessage, FieldArray } from "formik";
 import * as yup from "yup";
 import InputField from "./_components/InputField";
+import { borderRadius, color, style, styled } from "@mui/system";
+import { ThemeContext } from "@emotion/react";
 
-
+const MyComp = styled("div")(({ theme }) => ({
+  backgroundColor: theme.palette.background.main,
+  borderRadius: "1rem",
+  boxShadow: `-5px 5px 0 1px ${theme.palette.background.other}`,
+  padding: ".5rem",
+}));
 
 export const Homepage = () => {
   const [recommendationList, setRecommendationList] = useState([]);
@@ -98,8 +106,76 @@ export const Homepage = () => {
   };
 
   return (
-    <Box width="80%">
-      <Formik
+    <Box width="80%" height="70%">
+      <Stack
+        height="100%"
+        // bgcolor="lime"
+        display="flex"
+        justifyContent="space-between"
+        flexDirection="column"
+        alignItems="center"
+      >
+        <Box>
+          <Typography variant="h1">i-recommennd.io</Typography>
+          <Typography variant="h6">
+            A <strong style={{ textDecoration: "underline" }}>simple</strong>{" "}
+            way to recommend your favorite places!
+          </Typography>
+        </Box>
+
+        <Box bgcolor="white" p={5} borderRadius="2rem">
+          <Stack textAlign="start" spacing={1}>
+            <Typography variant="h1">"Go to</Typography>
+            <Box
+              sx={{
+                borderRadius: "1rem",
+                boxShadow: "-7px 10px 3px rgba(0, 0, 0, 0.09)",
+              }}
+            >
+              <MyComp>
+                <Typography variant="h1">Coopers Rock</Typography>
+              </MyComp>
+            </Box>
+
+            <Typography variant="h1">for sunset."</Typography>
+          </Stack>
+
+          {/* <Grid container>
+            <Grid item xs={1} bgcolor="green" />
+            <Grid item xs={5}>
+              <Typography variant="h1">"Go to</Typography>
+            </Grid>
+            <Grid item xs={6} bgcolor="green" />
+            <Grid item xs={0.5} bgcolor="red" />
+            <Grid xs={11} item>
+              <Typography variant="h1">Coopers Rock</Typography>
+            </Grid>
+            <Grid item xs={0.5} bgcolor="red" />
+            <Grid item xs={1} bgcolor="lime" />
+            <Grid xs={11} item>
+              <Typography variant="h1">for sunset"</Typography>
+            </Grid>
+            <Grid item xs={.5} bgcolor="lime" />
+          </Grid> */}
+        </Box>
+        <Box>
+          <Button
+            variant="contained"
+            sx={{
+              bgcolor: "white",
+              color: "black",
+              borderRadius: "30rem",
+              px: 3,
+            }}
+          >
+            <Typography variant="h4" fontWeight={500} textTransform="none">
+              Start List
+            </Typography>
+          </Button>
+        </Box>
+      </Stack>
+
+      {/* <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={async (values) => {
@@ -130,18 +206,6 @@ export const Homepage = () => {
                     }}
                   />
                 </Box>
-                {/* <Stack spacing={4} direction="row" p={4}>
-        <Button
-          variant="contained"
-          color="success"
-          onClick={() => {
-            addRecommendation(value);
-          }}
-        >
-          Add to Recommendations
-        </Button>
-      </Stack> */}
-
                 <List
                   sx={{
                     overflow: "auto",
@@ -197,7 +261,7 @@ export const Homepage = () => {
             </Box>
           </Form>
         )}
-      </Formik>
+      </Formik> */}
     </Box>
   );
 };

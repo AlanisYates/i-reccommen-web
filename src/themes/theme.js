@@ -5,6 +5,9 @@ export const MyTheme = createTheme({
   palette: {
     background: {
       main: "#99D6EA",
+      other: "#FFE281",
+      mainDark: "#242038",
+      otherDark: "#8D86C9",
     },
     primary: {
       // Purple and green play nicely together.
@@ -18,7 +21,8 @@ export const MyTheme = createTheme({
 });
 
 MyTheme.typography.h1 = {
-  fontSize: "2.8rem",
+  fontSize: "2.1rem",
+  fontFamily: "karla",
   "@media (min-width:600px)": {
     fontSize: "4rem",
   },
@@ -27,18 +31,10 @@ MyTheme.typography.h1 = {
   },
 };
 
-MyTheme.typography.h4 = {
-  fontSize: "1rem",
-  "@media (min-width:600px)": {
-    fontSize: "1rem",
-  },
-  [MyTheme.breakpoints.up("md")]: {
-    fontSize: "2.3rem",
-  },
-};
-
 MyTheme.typography.h6 = {
-  fontSize: ".6rem",
+  fontFamily: "karla",
+  fontWeight: 500,
+  fontSize: ".9rem",
   "@media (min-width:600px)": {
     fontSize: "1rem",
   },
