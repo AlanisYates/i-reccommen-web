@@ -17,14 +17,30 @@ import { PlaceCard } from "./_components/PlaceCard";
 import { Formik, Field, Form, ErrorMessage, FieldArray } from "formik";
 import * as yup from "yup";
 import InputField from "./_components/InputField";
-import { borderRadius, color, style, styled } from "@mui/system";
+import { borderRadius, color, style, styled, keyframes } from "@mui/system";
 import { ThemeContext } from "@emotion/react";
 
+const spin = keyframes`
+0% {
+  transform: translateX(0) translateY(0);
+}
+50% {
+  transform: translateX(2px) translateY(-2px); 
+}
+`;
 const MyComp = styled("div")(({ theme }) => ({
   backgroundColor: theme.palette.background.main,
   borderRadius: "1rem",
   boxShadow: `-5px 5px 0 1px ${theme.palette.background.other}`,
   padding: ".5rem",
+  animation: `${spin} 2.5s infinite ease-out`,
+  cursor: 'pointer',
+  transition: 'background-color 200ms ease-out 10ms',
+
+ 
+ ":hover": {
+   backgroundColor: 'pink',
+ }
 }));
 
 export const Homepage = () => {
@@ -139,24 +155,6 @@ export const Homepage = () => {
 
             <Typography variant="h1">for sunset."</Typography>
           </Stack>
-
-          {/* <Grid container>
-            <Grid item xs={1} bgcolor="green" />
-            <Grid item xs={5}>
-              <Typography variant="h1">"Go to</Typography>
-            </Grid>
-            <Grid item xs={6} bgcolor="green" />
-            <Grid item xs={0.5} bgcolor="red" />
-            <Grid xs={11} item>
-              <Typography variant="h1">Coopers Rock</Typography>
-            </Grid>
-            <Grid item xs={0.5} bgcolor="red" />
-            <Grid item xs={1} bgcolor="lime" />
-            <Grid xs={11} item>
-              <Typography variant="h1">for sunset"</Typography>
-            </Grid>
-            <Grid item xs={.5} bgcolor="lime" />
-          </Grid> */}
         </Box>
         <Box>
           <Button
