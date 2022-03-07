@@ -21,11 +21,26 @@ import { borderRadius, color, style, styled, keyframes } from "@mui/system";
 import { ThemeContext } from "@emotion/react";
 
 const spin = keyframes`
-0% {
+30% {
   transform: translateX(0) translateY(0);
 }
-50% {
+40% {
   transform: translateX(2px) translateY(-2px); 
+}
+50% {
+  transform: translateX(0) translateY(0);
+}
+`;
+
+const darkShadow = keyframes`
+30% {
+  box-shadow: -7px 10px 3px rgba(0, 0, 0, 0.09);
+}
+40% {
+  box-shadow: -7px 10px 3px rgba(0, 0, 0, .29);
+}
+50% {
+  box-shadow: -7px 10px 3px rgba(0, 0, 0, .09);
 }
 `;
 const MyComp = styled("div")(({ theme }) => ({
@@ -33,14 +48,9 @@ const MyComp = styled("div")(({ theme }) => ({
   borderRadius: "1rem",
   boxShadow: `-5px 5px 0 1px ${theme.palette.background.other}`,
   padding: ".5rem",
-  animation: `${spin} 2.5s infinite ease-out`,
-  cursor: 'pointer',
-  transition: 'background-color 200ms ease-out 10ms',
-
- 
- ":hover": {
-   backgroundColor: 'pink',
- }
+  animation: `${spin} 4s infinite ease-in`,
+  cursor: "pointer",
+  transition: "background-color 200ms ease-out 10ms",
 }));
 
 export const Homepage = () => {
@@ -125,7 +135,6 @@ export const Homepage = () => {
     <Box width="80%" height="70%">
       <Stack
         height="100%"
-        // bgcolor="lime"
         display="flex"
         justifyContent="space-between"
         flexDirection="column"
@@ -139,13 +148,14 @@ export const Homepage = () => {
           </Typography>
         </Box>
 
-        <Box bgcolor="white" p={5} borderRadius="2rem">
+        <Box bgcolor="white" p={5} borderRadius="2rem" boxShadow="0px 4px 10px rgba(0, 0, 0, 0.25)">
           <Stack textAlign="start" spacing={1}>
             <Typography variant="h1">"Go to</Typography>
             <Box
               sx={{
                 borderRadius: "1rem",
                 boxShadow: "-7px 10px 3px rgba(0, 0, 0, 0.09)",
+                animation: `${darkShadow} 4s infinite ease-in`,
               }}
             >
               <MyComp>
