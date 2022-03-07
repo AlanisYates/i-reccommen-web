@@ -150,7 +150,7 @@ export const Homepage = () => {
 
         <Box bgcolor="white" p={5} borderRadius="2rem" boxShadow="0px 4px 10px rgba(0, 0, 0, 0.25)">
           <Stack textAlign="start" spacing={1}>
-            <Typography variant="h1">"Go to</Typography>
+            <Typography variant="h1">"Go to yo</Typography>
             <Box
               sx={{
                 borderRadius: "1rem",
